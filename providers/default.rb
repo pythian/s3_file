@@ -5,6 +5,7 @@ use_inline_resources
 
 action :create do
   rest_client_gem = Chef::Resource::ChefGem.new('rest-client', @run_context)
+  rest_client_gem.version ">= 1.7.0"
   rest_client_gem.run_action :install
   client = S3FileLib::client
   download = true
